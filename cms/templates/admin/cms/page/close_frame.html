@@ -20,7 +20,8 @@ Window.CMS.$(document).ready(function () {
 		'plugin_type': '{{ type }}',
 		'plugin_name': '{{ name }}',
 		'plugin_icon': '{{ icon }}',
-		'plugin_desc': '{{ alt }}'
+		'plugin_desc': '{{ alt }}',
+		'plugin_class': '{{ plugin_class }}'
 	};
 	// save current plugin
 	Window.CMS.API.Helpers.reloadBrowser(undefined, {{ window_close_timeout|default:500 }});

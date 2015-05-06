@@ -233,6 +233,19 @@ class CMSPlugin(with_metaclass(PluginModelBase, MPTTModel)):
         else:
             return u''
 
+    def get_instance_icon_class(self):
+        """
+        Get alt text for instance's icon
+        """
+        instance, plugin = self.get_plugin_instance()
+        if instance:
+            try:
+                return force_unicode(plugin.icon_class(instance))
+            except AttributeError:
+                return ''
+        else:
+            return u''
+
     def save(self, no_signals=False, *args, **kwargs):
         if no_signals:  # ugly hack because of mptt
             if DJANGO_1_5:

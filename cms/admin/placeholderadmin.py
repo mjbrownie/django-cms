@@ -369,6 +369,7 @@ class PlaceholderAdminMixin(object):
                 "type": cms_plugin.get_plugin_name(),
                 'plugin_id': plugin_id,
                 'icon': force_escape(escapejs(cms_plugin.get_instance_icon_src())),
+                'plugin_class': force_escape(escapejs(cms_plugin.get_instance_icon_class())),
                 'alt': force_escape(escapejs(cms_plugin.get_instance_icon_alt())),
                 'cancel': True,
             }
@@ -404,6 +405,7 @@ class PlaceholderAdminMixin(object):
                 "type": saved_object.get_plugin_name(),
                 'plugin_id': plugin_id,
                 'icon': force_escape(saved_object.get_instance_icon_src()),
+                'plugin_class': force_escape(saved_object.get_instance_icon_class()),
                 'alt': force_escape(saved_object.get_instance_icon_alt()),
             }
             return render_to_response('admin/cms/page/plugin/confirm_form.html', context, RequestContext(request))
